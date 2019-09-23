@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+    # node-server:
+    #     container_name: node-server
+    #     build: ./docker/node-server
+    #     networks:
+    #         - host
+    #     ports:
+    #         - 8080:8080
+    #     volumes:
+    #         - ./:/usr/src/app
+    #         - ./node_modules
+    mongo-server:
+        container_name: mongo-server
+        image: mongo
+        # restart: always
+        ports:
+            - 27017:27017
+        networks:
+            - host
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: passpass
+            MONGO_INITDB_DATABASE: pmkt_db
+        volumes:
+            - ./docker/mongo-server/script/:/docker-entrypoint-initdb.d/
+            # - pmkt-mongoDb-data:/data/db
+            # - ./docker/mongo-server/data:/data/db
+        command: mongod --auth
+# volumes:
+#     pmkt-mongoDb-data:
+networks:
+  host:

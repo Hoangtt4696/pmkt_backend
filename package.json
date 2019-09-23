@@ -1,0 +1,47 @@
+{
+  "name": "nodejs-source-structure",
+  "version": "1.0.0",
+  "description": "Build Nodejs Structure",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -r esm src/app.js",
+    "start:pm2": "pm2 start ecosystem.config.js",
+    "restart:pm2": "pm2 start ecosystem.config.js",
+    "stop:pm2": "pm2 stop all",
+    "log:pm2": "pm2 log",
+    "test": "mocha -r esm \"tests/api\"",
+    "test:api": "mocha -r esm \"tests/api\"",
+    "test:socket": "mocha -r esm \"tests/socket\"",
+    "test:feature": "mocha -r esm \"tests/features\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "array-to-tree": "^3.3.0",
+    "bcrypt": "^3.0.6",
+    "compression": "^1.7.4",
+    "connect-mongo": "^3.0.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "express-validator": "^6.1.1",
+    "http": "^0.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26",
+    "mongoose": "^5.6.8",
+    "morgan": "^1.9.1",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.0"
+  }
+}
